@@ -93,4 +93,4 @@ in the README:
 1. Why did you choose the language you used for the coding test?
 
 #### Thanks for your time, we look forward to hearing from you!
-- The [Retail Insight EngineeringTteam](https://ri-team.com)
+- The [Retail Insight Engineering team](https://ri-team.com)
