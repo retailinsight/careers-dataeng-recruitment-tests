@@ -16,7 +16,7 @@ Please make this a **single** zip file named `{yourname}-{role-applied-for}.zip`
 A retail point of sale system at a grocery store handles tens of thousands of item scans per day. This task involves a simplification of the following 4 event types which are part of a retail sales transaction:
 - `CheckoutStarted` is raised when all items have been scanned and the customer is asked to pay
 - `CheckoutComplete` is raised when the basket is paid for
-- `CheckoutAbandoned` is raised when the checkout process is abandonned without payment
+- `CheckoutAbandoned` is raised when the checkout process is abandoned without payment
 
 `CheckoutStarted` represents the beginning of the workflow. Either one of `CheckoutComplete` or `CheckoutAbandoned` represents the end of the workflow.
 
@@ -49,29 +49,31 @@ The technical test is to write an app that can generate events and write them to
     * output-directory - Output directory for all created files.
 * How to run the app
 
-    ```bash
-    generate-events \
-        --number-of-checkouts=1000000 \
-        --batch-size=5000 \
-        --interval=1 \
-        --output-directory=<local-dir>
-    ```
+```bash
+generate-events \
+    --number-of-checkouts=1000000 \
+    --batch-size=5000 \
+    --interval=1 \
+    --output-directory=<local-dir>
+```
+
 * Example shows a snippet of ten events from the content of a generated file. Each event is on its own line separated by a line-break.
 
-    ```json
-    { "Type": "CheckoutStarted", "Data": { "BasketID": "0d25c6ce-f01c-4f39-8d93-168428c92153", "TimestampUtc": "2020-04-14T19:12:32Z" } }
-    { "Type": "CheckoutComplete", "Data": { "BasketID": "0d25c6ce-f01c-4f39-8d93-168428c92153", "TimestampUtc": "2020-04-14T19:12:32Z"} }
-    { "Type": "CheckoutStarted", "Data": { "BasketID": "4cc0efb8-ce0f-4b36-afe6-f7a6ad3639c7", "TimestampUtc": "2020-04-14T19:12:33Z" } }
-    { "Type": "CheckoutComplete", "Data": {"BasketID": "4cc0efb8-ce0f-4b36-afe6-f7a6ad3639c7", "TimestampUtc": "2020-04-14T19:12:33Z"} }
-    { "Type": "CheckoutStarted", "Data": { "BasketID": "b7bfb039-8779-48f5-86fa-808ae277a503", "TimestampUtc": "2020-04-14T19:12:34Z" } }
-    { "Type": "CheckoutComplete", "Data": { "BasketID": "b7bfb039-8779-48f5-86fa-808ae277a503", "TimestampUtc": "2020-04-14T19:12:34Z"} }
-    { "Type": "CheckoutStarted", "Data": { "BasketID": "84793616-4715-4e58-910b-4298cf24b632", "TimestampUtc": "2020-04-14T19:12:35Z" } }
-    { "Type": "CheckoutComplete", "Data": {"BasketID": "84793616-4715-4e58-910b-4298cf24b632", "TimestampUtc": "2020-04-14T19:12:35Z"} }
-    { "Type": "CheckoutStarted", "Data": { "BasketID": "c93fc4f3-5b1f-446a-9438-55f1ce0f0a3e", "TimestampUtc": "2020-04-14T19:12:36Z" } }
-    { "Type": "CheckoutComplete", "Data": { "BasketID": "c93fc4f3-5b1f-446a-9438-55f1ce0f0a3e", "TimestampUtc": "2020-04-14T19:12:36Z"} }
-    { "Type": "CheckoutStarted", "Data": { "BasketID": "99cf9047-80db-4361-869f-cbbd39fef463", "TimestampUtc": "2020-04-14T19:12:37Z" } }
-    { "Type": "CheckoutAbandoned", "Data": {"BasketID": "99cf9047-80db-4361-869f-cbbd39fef463", "TimestampUtc": "2020-04-14T19:12:37Z"} }
-    ```
+```json
+{ "Type": "CheckoutStarted", "Data": { "BasketID": "0d25c6ce-f01c-4f39-8d93-168428c92153", "TimestampUtc": "2020-04-14T19:12:32Z" } }
+{ "Type": "CheckoutComplete", "Data": { "BasketID": "0d25c6ce-f01c-4f39-8d93-168428c92153", "TimestampUtc": "2020-04-14T19:12:32Z"} }
+{ "Type": "CheckoutStarted", "Data": { "BasketID": "4cc0efb8-ce0f-4b36-afe6-f7a6ad3639c7", "TimestampUtc": "2020-04-14T19:12:33Z" } }
+{ "Type": "CheckoutComplete", "Data": {"BasketID": "4cc0efb8-ce0f-4b36-afe6-f7a6ad3639c7", "TimestampUtc": "2020-04-14T19:12:33Z"} }
+{ "Type": "CheckoutStarted", "Data": { "BasketID": "b7bfb039-8779-48f5-86fa-808ae277a503", "TimestampUtc": "2020-04-14T19:12:34Z" } }
+{ "Type": "CheckoutComplete", "Data": { "BasketID": "b7bfb039-8779-48f5-86fa-808ae277a503", "TimestampUtc": "2020-04-14T19:12:34Z"} }
+{ "Type": "CheckoutStarted", "Data": { "BasketID": "84793616-4715-4e58-910b-4298cf24b632", "TimestampUtc": "2020-04-14T19:12:35Z" } }
+{ "Type": "CheckoutComplete", "Data": {"BasketID": "84793616-4715-4e58-910b-4298cf24b632", "TimestampUtc": "2020-04-14T19:12:35Z"} }
+{ "Type": "CheckoutStarted", "Data": { "BasketID": "c93fc4f3-5b1f-446a-9438-55f1ce0f0a3e", "TimestampUtc": "2020-04-14T19:12:36Z" } }
+{ "Type": "CheckoutComplete", "Data": { "BasketID": "c93fc4f3-5b1f-446a-9438-55f1ce0f0a3e", "TimestampUtc": "2020-04-14T19:12:36Z"} }
+{ "Type": "CheckoutStarted", "Data": { "BasketID": "99cf9047-80db-4361-869f-cbbd39fef463", "TimestampUtc": "2020-04-14T19:12:37Z" } }
+{ "Type": "CheckoutAbandoned", "Data": {"BasketID": "99cf9047-80db-4361-869f-cbbd39fef463", "TimestampUtc": "2020-04-14T19:12:37Z"} }
+```
+
 * Every `CheckoutStarted` event must have a `CheckoutComplete` or `OrderCancelled` event with the same `BasketID`.
 
 ### Platform Choice
