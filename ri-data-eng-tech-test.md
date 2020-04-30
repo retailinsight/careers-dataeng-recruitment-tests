@@ -91,7 +91,7 @@ in the README:
 1. Provide clear instructions on your test setup and how to execute your tests.
 1. List any additional comments or observations you might want to share about your submission.
 1. How long did you spend on the coding test?
-1. What would you add to your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.
+1. How would you improve your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.
 1. Why did you choose the language you used for the coding test?
 
 #### Thanks for your time, we look forward to hearing from you!
