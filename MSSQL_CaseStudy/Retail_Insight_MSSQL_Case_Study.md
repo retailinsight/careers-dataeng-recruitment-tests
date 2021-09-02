@@ -33,9 +33,9 @@ https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-
 
 ## Tasks
 
-### Task 1 - Open SSMS and connect to installed instace of MSSQL server
+### Task 1 - Open SSMS and connect to installed instance of MSSQL server
 
-Open SSMS, it should prompt you to connect to a database engine. If the server name isn't pre-populated, enter the servername you noted down in the `Install MSSQL Server` setup step.
+Open SSMS, it should prompt you to connect to a database engine. If the server name isn't pre-populated, enter the server name you noted down in the `Install MSSQL Server` setup step.
 
 ![SQL Server Connect](img\SQLServerConnect.png)
 
@@ -88,7 +88,7 @@ Save the `RetailInsight_CaseStudy_Data.csv` file locally on your machine e.g. `C
 ### Task 4 - Create file for your code
 Open a new query window in SSMS and save it as `RetailInsightCaseStudy_completedtasks.sql`, use this for all the code and comments you want to submit.
 
-### Task 5 - Create a new databse using T-SQL
+### Task 5 - Create a new database using T-SQL
 a. Create a database called `RetailInsight_Case_Study` using T-SQL, here is a simple T-SQL statement to create a database without any additional settings configured.
 ```SQL
 CREATE DATABASE RetailInsight_Case_Study;
@@ -228,15 +228,3 @@ GO
 RECONFIGURE;
 GO
 ```
-
-
-
-
-
-
-
-
-
-
-
-
