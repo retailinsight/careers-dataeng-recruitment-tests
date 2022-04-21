@@ -24,6 +24,7 @@ Given a system in which devices send a stream of events, design a system to dete
 *   You can assume each device sends its data in time sequence. 
 
 **The event stream has the following schema:**
+
   |device_id|event_time|event_data|
   |a00000001|2020-02-01T10:01:00+10:00|{state: occupied}|
   |a00000001|2020-02-01T10:04:07+10:00|{state: unoccupied}|
