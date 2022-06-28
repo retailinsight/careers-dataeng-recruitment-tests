@@ -92,6 +92,4 @@ Please create a README.md file in the root directory containing:
 1.  How would you improve your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.
 1.  Why did you choose the language you used for the coding test?
 
-# Thanks for your time, we look forward to hearing from you!
-
--  The [Retail Insight Engineering team](https://www.retailinsight.io)
+Thanks for your time, we look forward to hearing from you!
