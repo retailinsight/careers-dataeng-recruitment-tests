@@ -3,8 +3,8 @@ Retail Insight Data Engineer Recruitment Test
 
 Thank you for taking the time to do our technical test. It consists of two parts:
 
-* [A technical test](#technical-test)
-* [A few feedback questions](#feedback-questions)
+*  [A technical test](#technical-test)
+*  [A few feedback questions](#feedback-questions)
 
 Please submit your results by uploading your zipped solution to a supplied dropbox link. In order to obtain the upload URL, please supply your email address to either your agent or the Retail Insight member of staff who assigned you the test.
 
@@ -13,10 +13,11 @@ Please make this a **single** zip file named `{yourname}-{role-applied-for}.zip`
 ## Technical Test
 
 ### Technical Introduction
+
 A retail point of sale system at a grocery store handles tens of thousands of item scans per day. This task involves a simplification of the following 4 event types which are part of a retail sales transaction:
-- `CheckoutStarted` is raised when all items have been scanned and the customer is asked to pay
-- `CheckoutComplete` is raised when the basket is paid for
-- `CheckoutAbandoned` is raised when the checkout process is abandoned without payment
+-  `CheckoutStarted` is raised when all items have been scanned and the customer is asked to pay
+-  `CheckoutComplete` is raised when the basket is paid for
+-  `CheckoutAbandoned` is raised when the checkout process is abandoned without payment
 
 `CheckoutStarted` represents the beginning of the workflow. Either one of `CheckoutComplete` or `CheckoutAbandoned` represents the end of the workflow.
 
@@ -32,22 +33,23 @@ The event schema is as follows:
 }
 ```
 
-- `Type` is the event type.
-- `Data.BasketID` is a randomly generated uuid which uniquely identifies an order. A single order may have more than one event associated with it.
-- `Data.TimestampUtc` is the timestamp (iso format) at which the event occurred.
+-  `Type` is the event type.
+-  `Data.BasketID` is a randomly generated uuid which uniquely identifies an order. A single order may have more than one event associated with it.
+-  `Data.TimestampUtc` is the timestamp (iso format) at which the event occurred.
 
 ### Implementation
+
 The technical test is to write an app that can generate events and write them to file.
 
-* Each order will produce two events namely (`CheckoutStarted`, `CheckoutComplete`) or (`CheckoutStarted`, `CheckoutAbandoned`).
-* Approximately 90% of checkouts will have `CheckoutStarted` and `CheckoutComplete` events and 10% of checkouts will have  `CheckoutStarted` and `CheckoutAbandoned` events.
-* The batch of events within a given interval should be stored in a line-delimited JSON file named `orders-<timestamp>.jsonl` eg. `orders-2020-04-01-15-05-14-879763.jsonl`
-* The app must take 4 arguments
+*  Each order will produce two events namely (`CheckoutStarted`, `CheckoutComplete`) or (`CheckoutStarted`, `CheckoutAbandoned`).
+*  Approximately 90% of checkouts will have `CheckoutStarted` and `CheckoutComplete` events and 10% of checkouts will have  `CheckoutStarted` and `CheckoutAbandoned` events.
+*  The batch of events within a given interval should be stored in a line-delimited JSON file named `orders-<timestamp>.jsonl` eg. `orders-2020-04-01-15-05-14-879763.jsonl`
+*  The app must take 4 arguments
     * number-of-checkouts - Number of checkouts to generate (note. each checkout produces two events).
     * batch-size - Number of events per file.
     * interval - Interval in seconds between each checkout being created.
     * output-directory - Output directory for all created files.
-* How to run the app
+*  How to run the app
 
 ```bash
 generate-events \
@@ -57,7 +59,7 @@ generate-events \
     --output-directory=<local-dir>
 ```
 
-* Example shows a snippet of ten events from the content of a generated file. Each event is on its own line separated by a line-break.
+*  Example shows a snippet of ten events from the content of a generated file. Each event is on its own line separated by a line-break.
 
 ```json
 { "Type": "CheckoutStarted", "Data": { "BasketID": "0d25c6ce-f01c-4f39-8d93-168428c92153", "TimestampUtc": "2020-04-14T19:12:32Z" } }
@@ -72,7 +74,7 @@ generate-events \
 { "Type": "CheckoutComplete", "Data": {"BasketID": "84793616-4715-4e58-910b-4298cf24b632", "TimestampUtc": "2020-04-14T19:12:35Z"} }
 ```
 
-* Every `CheckoutStarted` event must have a `CheckoutComplete` or `CheckoutAbandoned` event with the same `BasketID`.
+*  Every `CheckoutStarted` event must have a `CheckoutComplete` or `CheckoutAbandoned` event with the same `BasketID`.
 
 ### Language Choice
 
@@ -82,15 +84,14 @@ You can create the solution in any language or framework of your choice. Please 
 
 Feel free to spend as much or as little time on the exercise as you like. We would really like you to show us how you code. We are looking for something that works, includes best practice, and is readable and easy to follow and review.
 
-Please create a README.md file in the root directory.
+Please create a README.md file in the root directory containing:
 
-in the README:
+1.  Clear instructions on your test setup and how to execute your tests.
+1.  Any additional comments or observations you might want to share about your submission.
+1.  How long did you spend on the coding test?
+1.  How would you improve your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.
+1.  Why did you choose the language you used for the coding test?
 
-1. Provide clear instructions on your test setup and how to execute your tests.
-1. List any additional comments or observations you might want to share about your submission.
-1. How long did you spend on the coding test?
-1. How would you improve your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.
-1. Why did you choose the language you used for the coding test?
+# Thanks for your time, we look forward to hearing from you!
 
-#### Thanks for your time, we look forward to hearing from you!
-- The [Retail Insight Engineering team](https://ri-team.com)
+-  The [Retail Insight Engineering team](https://www.retailinsight.io)
