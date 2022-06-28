@@ -41,9 +41,9 @@ The technical test is to write an app that can generate events and write them to
 
 * Each order will produce two events namely (`CheckoutStarted`, `CheckoutComplete`) or (`CheckoutStarted`, `CheckoutAbandoned`).
 * Approximately 90% of checkouts will have `CheckoutStarted` and `CheckoutComplete` events and 10% of checkouts will have  `CheckoutStarted` and `CheckoutAbandoned` events.
-* The batch of events within a given interval should be stored in a line-delimited JSON file named `orders-<timestamp>.json` eg. orders-2020-04-01-15-05-14-879763.json
+* The batch of events within a given interval should be stored in a line-delimited JSON file named `orders-<timestamp>.jsonl` eg. `orders-2020-04-01-15-05-14-879763.jsonl`
 * The app must take 4 arguments
-    * number-of-checkouts - Number of checkouts to generate (nb. each checkout produces two events).
+    * number-of-checkouts - Number of checkouts to generate (note. each checkout produces two events).
     * batch-size - Number of events per file.
     * interval - Interval in seconds between each checkout being created.
     * output-directory - Output directory for all created files.
@@ -66,17 +66,15 @@ generate-events \
 { "Type": "CheckoutComplete", "Data": {"BasketID": "4cc0efb8-ce0f-4b36-afe6-f7a6ad3639c7", "TimestampUtc": "2020-04-14T19:12:33Z"} }
 { "Type": "CheckoutStarted", "Data": { "BasketID": "b7bfb039-8779-48f5-86fa-808ae277a503", "TimestampUtc": "2020-04-14T19:12:34Z" } }
 { "Type": "CheckoutComplete", "Data": { "BasketID": "b7bfb039-8779-48f5-86fa-808ae277a503", "TimestampUtc": "2020-04-14T19:12:34Z"} }
-{ "Type": "CheckoutStarted", "Data": { "BasketID": "84793616-4715-4e58-910b-4298cf24b632", "TimestampUtc": "2020-04-14T19:12:35Z" } }
-{ "Type": "CheckoutComplete", "Data": {"BasketID": "84793616-4715-4e58-910b-4298cf24b632", "TimestampUtc": "2020-04-14T19:12:35Z"} }
-{ "Type": "CheckoutStarted", "Data": { "BasketID": "c93fc4f3-5b1f-446a-9438-55f1ce0f0a3e", "TimestampUtc": "2020-04-14T19:12:36Z" } }
-{ "Type": "CheckoutComplete", "Data": { "BasketID": "c93fc4f3-5b1f-446a-9438-55f1ce0f0a3e", "TimestampUtc": "2020-04-14T19:12:36Z"} }
 { "Type": "CheckoutStarted", "Data": { "BasketID": "99cf9047-80db-4361-869f-cbbd39fef463", "TimestampUtc": "2020-04-14T19:12:37Z" } }
 { "Type": "CheckoutAbandoned", "Data": {"BasketID": "99cf9047-80db-4361-869f-cbbd39fef463", "TimestampUtc": "2020-04-14T19:12:37Z"} }
+{ "Type": "CheckoutStarted", "Data": { "BasketID": "84793616-4715-4e58-910b-4298cf24b632", "TimestampUtc": "2020-04-14T19:12:35Z" } }
+{ "Type": "CheckoutComplete", "Data": {"BasketID": "84793616-4715-4e58-910b-4298cf24b632", "TimestampUtc": "2020-04-14T19:12:35Z"} }
 ```
 
-* Every `CheckoutStarted` event must have a `CheckoutComplete` or `OrderCancelled` event with the same `BasketID`.
+* Every `CheckoutStarted` event must have a `CheckoutComplete` or `CheckoutAbandoned` event with the same `BasketID`.
 
-### Platform Choice
+### Language Choice
 
 You can create the solution in any language or framework of your choice. Please don't use a language that you're unfamiliar with. We want to see you at your best!
 
