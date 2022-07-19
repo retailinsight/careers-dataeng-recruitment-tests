@@ -78,7 +78,7 @@ generate-events \
 
 ### Language Choice
 
-You can create the solution in any language or framework of your choice. Please don't use a language that you're unfamiliar with. We want to see you at your best!
+Please use python when completing this challenge.
 
 # Feedback Questions
 
