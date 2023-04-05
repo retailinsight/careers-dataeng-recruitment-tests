@@ -47,7 +47,7 @@ The technical test is to write an app that can generate events and write them to
 *  The app must take 4 arguments
     * number-of-checkouts - Number of checkouts to generate (note. each checkout produces two events).
     * batch-size - Number of events per file.
-    * interval - Interval in seconds between each checkout being created.
+    * interval - Interval in seconds between each checkout being created. This is expected to be the interval between events in the output file, not a real-time wait.
     * output-directory - Output directory for all created files.
 *  How to run the app
 
@@ -90,6 +90,5 @@ Please create a README.md file in the root directory containing:
 1.  Any additional comments or observations you might want to share about your submission.
 1.  How long did you spend on the coding test?
 1.  How would you improve your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.
-1.  Why did you choose the language you used for the coding test?
 
 Thanks for your time, we look forward to hearing from you!
