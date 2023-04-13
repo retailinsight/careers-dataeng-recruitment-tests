@@ -14,7 +14,7 @@ Please make this a **single** zip file named `{yourname}-{role-applied-for}.zip`
 
 ### Technical Introduction
 
-A retail point of sale system at a grocery store handles tens of thousands of item scans per day. This task involves a simplification of the following 4 event types which are part of a retail sales transaction:
+A retail point of sale system at a grocery store handles tens of thousands of item scans per day. This task involves a simplification of the following 3 event types which are part of a retail sales transaction:
 -  `CheckoutStarted` is raised when all items have been scanned and the customer is asked to pay
 -  `CheckoutComplete` is raised when the basket is paid for
 -  `CheckoutAbandoned` is raised when the checkout process is abandoned without payment
@@ -47,7 +47,7 @@ The technical test is to write an app that can generate events and write them to
 *  The app must take 4 arguments
     * number-of-checkouts - Number of checkouts to generate (note. each checkout produces two events).
     * batch-size - Number of events per file.
-    * interval - Interval in seconds between each checkout being created. This is expected to be the interval between events in the output file, not a real-time wait.
+    * interval - Interval in seconds between each checkout being created. This is expected to be the interval between timestamps in the output file, not a real-time wait.
     * output-directory - Output directory for all created files.
 *  How to run the app
 
